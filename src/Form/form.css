@@ -1,0 +1,15 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.lab{
+    margin-top: 10px;
+}
+
+.but{
+    margin-top: 20px;
+    width: 50%;
+    align-self: center;
+}
