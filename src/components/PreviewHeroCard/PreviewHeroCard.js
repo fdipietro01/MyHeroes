@@ -1,18 +1,18 @@
  
 import {useContext} from "react"
 import {TeamContext} from "../../contexts/TeamContext/TeamContext"
+import {Link} from "react-router-dom"
 
-export const PreviewHeroCard = ({heroe, idx, powerStatsAverages})=>{
-    const {addHeroe} = useContext(TeamContext)
+export const PreviewHeroCard = ({heroe, idx})=>{
+    const {addHeroe, isIncludInTeam, removeHeroe} = useContext(TeamContext)
+
     
     return(
     <div> 
                 <img className="previewPhoto" src={heroe.image.url} alt="heroePreview"/> <span> {heroe.name}</span> 
-                <div>PowerAverage: 
-                    {powerStatsAverages !== undefined && <span>{powerStatsAverages[idx]}</span>}
-                </div>
-                <button onClick={()=>addHeroe(heroe)}>add+</button>
-                <button onClick={()=>console.log("hola")}>detail</button>
+                {isIncludInTeam(heroe) === false? <button onClick={()=>addHeroe(heroe)}>add+</button> :
+                                                  <button onClick={()=>removeHeroe(heroe)}>remove-</button> }
+                <Link to={`/detail-heroe/${heroe.id}`}><div>detail</div></Link>
     </div>
     )
 }

@@ -60,7 +60,7 @@ export const TeamSelection = ({children})=>{
 
 
     return (
-        <TeamContext.Provider value={{selectedHeroes, addHeroe, removeHeroe}}>
+        <TeamContext.Provider value={{selectedHeroes, addHeroe, removeHeroe, isIncludInTeam}}>
             {children}
         </TeamContext.Provider>
     )

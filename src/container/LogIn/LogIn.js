@@ -62,7 +62,6 @@ export const LogIn = ()=>{
         return error
     }
 
-    console.log(autenticated)
 
     return(
         <div>
