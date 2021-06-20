@@ -1,7 +1,7 @@
 import {TeamSection} from "../components/TeamSection/TeamSection"
 import {NavBarComp} from "../components/NavBar/NavBar"
 import {useContext} from "react"
-import { LogInContext } from "../LogInContext/LogInContext"
+import { LogInContext } from "../contexts/LogInContext/LogInContext"
 
 
 export const Home = ()=>{

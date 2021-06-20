@@ -1,6 +1,6 @@
-import "./form.css" 
+import "./Login.css" 
 import {useContext} from "react"
-import { LogInContext } from "../../LogInContext/LogInContext"
+import {LogInContext} from "../../contexts/LogInContext/LogInContext"
 import axios from "axios"
 import {Formik, Form, Field} from "formik"
 import {NavBarComp} from "../../components/NavBar/NavBar"
@@ -100,10 +100,11 @@ export const LogIn = ()=>{
                         validate={validatePassword}
                     />
                     {errors.password && touched.password? <div>{errors.password}</div> : null}
-                <Button variant="dark" type="submit">Log In</Button>{' '} 
+                    <Button variant="dark" type="submit">Log In</Button>{' '}     
                     </Form>
                 )} 
-                </Formik>                
+                </Formik>      
+                     
         </div>
     )    
 }

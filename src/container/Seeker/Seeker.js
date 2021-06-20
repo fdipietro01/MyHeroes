@@ -5,17 +5,18 @@ import {Button} from "react-bootstrap"
 import axios from "axios"
 import { useEffect } from "react"
 import "./Seeker.css"
+import { PreviewHeroCard } from "../../components/PreviewHeroCard/PreviewHeroCard"
 
 
 export const Seeker = ()=>{
 
-   const [searchResults, setSearchResults] = useState()
+   const [searchResults, setSearchResults] = useState([])
    const [powerStatsAverages, setPowerStatsAverage] = useState()
 
     
    useEffect(()=>{
-    console.log(searchResults)
     setHeroesAverageStats()
+       // eslint-disable-next-line react-hooks/exhaustive-deps
        },[searchResults])
   
     
@@ -45,7 +46,6 @@ export const Seeker = ()=>{
     const setHeroesAverageStats = ()=> {
         if (searchResults !== undefined) {
             const resultsStats = searchResults.map(heroe=> (Object.values(heroe.powerstats)))
-            console.log (resultsStats)
             const averages = []
             
             for ( let x = 0; x<resultsStats.length; x++ ){
@@ -55,13 +55,11 @@ export const Seeker = ()=>{
                     acumulated = acumulated + parseInt(resultsStats[x][y])
                 }
             averages[x]=Math.round(acumulated/6)
-            console.log(averages)
             }
             setPowerStatsAverage(averages)
         }
     } 
-    
-console.log(powerStatsAverages)
+
     
     function validateSearchBarInput(value) {
         let error
@@ -100,12 +98,8 @@ console.log(powerStatsAverages)
         )}
         </Formik>  
 
-            {searchResults !== undefined?  <div>{searchResults.map((heroe, idx) => 
-            <div key={heroe.id}> 
-                <img className="previewPhoto" src={heroe.image.url} alt="heroePreview"/> <span> {heroe.name}</span> 
-                <div>PowerAverage: 
-                    {powerStatsAverages !== undefined && <span>{powerStatsAverages[idx]}</span>}
-                </div>
-            </div>)}</div> : null}
+            {searchResults.length > 0 && <div>{searchResults.map((heroe, idx) => 
+            <PreviewHeroCard key={heroe.id} heroe={heroe} idx={idx} powerStatsAverages={powerStatsAverages}/>
+            )}</div>}
     </>
 )}

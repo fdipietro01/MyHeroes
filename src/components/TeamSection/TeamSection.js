@@ -1,4 +1,4 @@
-import {PreviewCard} from "../PreviewCard/PreviewCard"
+import {NoPickHeroCard} from "../NoPickHeroCard/NoPickHeroCard"
 import "./TeamSection.css"
 
 
@@ -7,12 +7,12 @@ export const TeamSection = ()=>{
         <div>
             <div></div>
             <div className="cardGrid">
-            <PreviewCard/>
-            <PreviewCard/>
-            <PreviewCard/>
-            <PreviewCard/>
-            <PreviewCard/>
-            <PreviewCard/>
+            <NoPickHeroCard/>
+            <NoPickHeroCard/>
+            <NoPickHeroCard/>
+            <NoPickHeroCard/>
+            <NoPickHeroCard/>
+            <NoPickHeroCard/>
             </div>
         </div>
     )

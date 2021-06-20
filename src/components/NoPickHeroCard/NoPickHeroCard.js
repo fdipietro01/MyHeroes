@@ -1,7 +1,7 @@
 import img from "../../Assets/Images/index"
-import './PreviewCard.css'
+import './NoPickHeroCard.css'
 
-export const PreviewCard = ()=>{
+export const NoPickHeroCard = ()=>{
 
     return(    
         <div className="uknownCard">
