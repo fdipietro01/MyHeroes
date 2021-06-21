@@ -6,8 +6,14 @@ export const TeamSelection = ({children})=>{
 
     const [selectedHeroes, setSelectedHeroes] = useState([])
 
-    const isIncludInTeam = (heroe)=>{
-        return selectedHeroes.includes(heroe)
+    const isIncludInTeam = (id)=>{
+        let isInclude = false     
+        selectedHeroes.map(heroe=>{
+            if(heroe.id === id){
+            isInclude = true
+            }
+        })
+            return isInclude
     }
 
     const addHeroe=(heroe)=>{
@@ -54,7 +60,7 @@ export const TeamSelection = ({children})=>{
 
     const removeHeroe=(heroe)=>{
         setSelectedHeroes(selectedHeroes.filter(x => x !== heroe))
-        return `${heroe.name} was removed from your team`
+        console.log(`${heroe.name} was removed from your team`) 
     }
     console.log(selectedHeroes)
 

@@ -70,8 +70,8 @@ export const Seeker = ()=>{
         )}
         </Formik>  
 
-            {searchResults.length > 0 && <div>{searchResults.map((heroe, idx) => 
-            <PreviewHeroCard key={heroe.id} heroe={heroe} idx={idx}/>
+            {searchResults.length > 0 && <div>{searchResults.map((heroe) => 
+            <PreviewHeroCard key={heroe.id} heroe={heroe}/>
             )}</div>}
     </>
 )}

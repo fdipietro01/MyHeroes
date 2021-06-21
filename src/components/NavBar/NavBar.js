@@ -1,6 +1,7 @@
 import {Navbar , Nav} from "react-bootstrap"
 import img from "../../Assets/Images/index"
 import "./NavBar.css"
+import { Link } from "react-router-dom"
 
 export const NavBarComp = () =>{
 
@@ -11,9 +12,9 @@ export const NavBarComp = () =>{
   
     <Navbar.Brand href="#home"> </Navbar.Brand>
     <Nav className="mr-auto">
-    <Nav.Link href={"/login"}>Log in</Nav.Link>
-    <Nav.Link href={"/team"}>My Team</Nav.Link>
-    <Nav.Link href={"/seeker"}>Heroes Seeker</Nav.Link>
+    <Nav.Link as={Link} to={"/login"}>Log in</Nav.Link>
+    <Nav.Link as={Link} to={"/team"}>My Team</Nav.Link>
+    <Nav.Link as={Link} to={"/seeker"}>Heroes Seeker</Nav.Link>
     </Nav>
   </Navbar>
 
