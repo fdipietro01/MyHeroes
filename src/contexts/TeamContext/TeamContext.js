@@ -27,6 +27,7 @@ export const TeamSelection = ({children})=>{
                 console.log("heroe no incluido en equipo aún")
                 const goodHeroes = selectedHeroes.filter(x => (x.biography.alignment === "good"))
                 const badHeroes = selectedHeroes.filter(x => (x.biography.alignment === "bad"))
+                const neutralHeroes = selectedHeroes.filter(x => (x.biography.alignment === "neutral"))
                 if(heroe.biography.alignment === "good"){
                             if(goodHeroes.length < 3){
                                 setSelectedHeroes([...selectedHeroes, heroe])
@@ -49,6 +50,17 @@ export const TeamSelection = ({children})=>{
                                 console.log("heroe malo denegado")
                             }
                 }
+                if(heroe.biography.alignment === "neutral"){
+                    if(neutralHeroes.length < 3){
+                        setSelectedHeroes([...selectedHeroes, heroe])
+                        console.log("heroe neutral agragado")
+                        addResult= `${heroe.name} Added to your team`
+                    }
+                    else{
+                        addResult= "Too many neutral Heroes, considere add some good and bad ones"
+                        console.log("heroe neutral denegado")
+                    }
+        }
             } 
                 }    
         else {

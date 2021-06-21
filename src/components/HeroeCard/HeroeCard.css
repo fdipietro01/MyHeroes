@@ -1,0 +1,17 @@
+.cardImage{
+    width: 12rem;
+    height: 8rem;
+}
+.cardTittle{
+    margin: 0.2rem 0;
+}
+
+.progresBar{
+    height: .65rem;
+    font-size: .55rem;
+}
+
+.cardStats{
+    font-size: .75rem;
+    font-weight: bold;
+}

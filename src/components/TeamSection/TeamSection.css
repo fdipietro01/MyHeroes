@@ -1,9 +1,11 @@
 .cardGrid{
     border: 2px solid black;
-    width: 60%;
+    width: 85%;
     margin: auto;
     display: grid;
     grid-template-rows: 100%;
     grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
     justify-items: center;
+    margin-bottom: 100px;
 }
+
