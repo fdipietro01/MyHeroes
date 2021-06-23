@@ -1,0 +1,66 @@
+.heroeResultCard{
+    margin: auto;
+    border: 2px solid grey;
+    border-radius: 10px;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 20rem;
+    height: 10rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.924) 5%, rgba(95,0,154,1) 40%, rgba(0, 0, 0, 0.924) 100%);
+
+}
+
+
+
+.heroeResultCardTittle{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: white;
+    text-shadow: 0px 5px rgba(0, 0, 0, 0.4);
+    align-self: flex-start;
+    padding-right: 1rem;
+}
+
+.previewPhoto{
+    border:2px solid rgb(70, 67, 67);
+    width: 32%;
+}
+
+.previewHeroeInfo{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.heroeResultCardTittlebuttons{
+    display: flex;
+    align-self: flex-start;
+    justify-content: space-evenly;
+    background-color: transparent;
+    border-radius: 15px;
+    width: 9rem;
+    height: 1.7rem;
+    margin-bottom: 1rem;
+   
+}
+
+.cardButton2{
+    border:none;
+    background-color: white;
+    border-radius: 100%;
+    padding-top: .2rem;
+    padding-right: .5rem;
+    width: 2.45em;
+    height:2.45rem;
+} 
+
+.icon2{
+    font-size: 1.7rem;
+    color: rgba(95,0,154,1);
+    background-color: transparent;   
+}
+

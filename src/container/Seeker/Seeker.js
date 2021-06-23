@@ -1,10 +1,12 @@
 import React, { useState } from "react"
 import { NavBarComp } from "../../components/NavBar/NavBar"
 import {Formik, Form, Field} from "formik"
-import {Button} from "react-bootstrap"
+import {Button, Container, Col, Row} from "react-bootstrap"
 import axios from "axios"
 import "./Seeker.css"
 import { PreviewHeroCard } from "../../components/PreviewHeroCard/PreviewHeroCard"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBan } from '@fortawesome/free-solid-svg-icons'
 
 
 export const Seeker = ()=>{
@@ -33,18 +35,29 @@ export const Seeker = ()=>{
         }
     }
     
-    function validateSearchBarInput(value) {
+    const validateSearchBarInput=(value)=> {
         let error
         if (!value) {
           error = 'Required'
         } 
         return error
     }
+
+    const deleteSearch =(e)=>{
+        console.log(e.target.value)
+        e.target.value=""
+        setSearchResults([])
+    }
+
   
     return(
     <>
-        <NavBarComp/>    
-        <Formik
+        <NavBarComp/> 
+        <Container>
+            <Row>
+                <Col>
+                       
+                    <Formik
             initialValues ={{
             search:"",
         
@@ -53,25 +66,35 @@ export const Seeker = ()=>{
             catchHero(formData)
         }}> 
     
-        {({errors, touched})=>(
+        {({errors, touched, resetForm})=>(
 
-        <Form className="form">       
-            <Field 
-                className="inp"
+        <Form className="formSeeker">       
+            <div className="searchBar">
+            <Field
+                onFocus={e=>e.target.placeholder=""} 
+                onBlur={e=>e.target.placeholder="Look up for your heroes"} 
+                className="seekerInp"
                 name="search" 
                 type="text" 
                 placeholder="Look up for your heroes"
                 validate={validateSearchBarInput} 
             />
-    
-        {errors.search && touched.search? <div>{errors.search}</div> : null}
-        <Button variant="dark" type="submit">Search</Button>{' '} 
+            {searchResults.length>0 && <Button className="deleteSearchButton" onClick={(e)=>{ deleteSearch(e); resetForm()}} variant="dark">
+                                           <FontAwesomeIcon className="icon" icon={faBan}/>
+                                        </Button>}
+            </div>                            
+
+            {errors.search && touched.search? <div>{errors.search}</div> : null}
+            <Button variant="dark" type="submit">Search now </Button>{' '} 
         </Form>
         )}
         </Formik>  
 
-            {searchResults.length > 0 && <div>{searchResults.map((heroe) => 
-            <PreviewHeroCard key={heroe.id} heroe={heroe}/>
-            )}</div>}
+                    {searchResults.length > 0 &&  <Row className="resultsGrid" >{searchResults.map((heroe) =><Col> 
+                    <PreviewHeroCard key={heroe.id} heroe={heroe}/></Col>
+                    )}</Row>}
+                </Col>
+            </Row>
+        </Container>
     </>
 )}

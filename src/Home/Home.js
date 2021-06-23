@@ -1,5 +1,6 @@
 import {TeamSection} from "../components/TeamSection/TeamSection"
 import {NavBarComp} from "../components/NavBar/NavBar"
+import { HeroeStats } from "../components/HeroesStats/HeroesStats"
 
 
 
@@ -9,7 +10,7 @@ export const Home = ()=>{
   
         <div>
              <NavBarComp/>
-             <p>Este es el home</p>
+             <HeroeStats/>
             <TeamSection/>
         </div> 
         

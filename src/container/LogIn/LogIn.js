@@ -4,7 +4,7 @@ import {LogInContext} from "../../contexts/LogInContext/LogInContext"
 import axios from "axios"
 import {Formik, Form, Field} from "formik"
 import {NavBarComp} from "../../components/NavBar/NavBar"
-import {Button} from "react-bootstrap"
+import {Button, Container, Row, Col} from "react-bootstrap"
 
 
 export const LogIn = ()=>{
@@ -67,7 +67,11 @@ export const LogIn = ()=>{
         <div>
             {autenticated === false && window.alert("Bad Loguin")}
             <NavBarComp/>
-            <Formik
+            <Container fluid>
+                <Row className="logInTittle">¡Login to access to the most complete heroes collection!</Row>
+                <Row>
+                    <Col className="formCont">
+                        <Formik
                 initialValues ={{
                     email:"",
                     password:""
@@ -84,11 +88,11 @@ export const LogIn = ()=>{
                         className="inp"
                         name="email" 
                         type="text" 
-                        placeholder="Log in"
+                        placeholder="Email address"
                         validate={validateEmail} 
                     />
                 
-                    {errors.email && touched.email? <div>{errors.email}</div> : null}
+                    <div className={`requiredHide ${errors.email && touched.email && "required"}`}>{errors.email && touched.email? errors.email: "required"}</div>
                 
                     <label className="lab">Password</label>
                     <Field 
@@ -98,12 +102,14 @@ export const LogIn = ()=>{
                         placeholder="Enter your password" 
                         validate={validatePassword}
                     />
-                    {errors.password && touched.password? <div>{errors.password}</div> : null}
-                    <Button variant="dark" type="submit">Log In</Button>{' '}     
+                    <div className={`requiredHide ${errors.password && touched.password && "required"}`}>{errors.password && touched.password? errors.password: "required"}</div>
+                    <Button className= "but" variant="dark" type="submit">Log In</Button>{' '}     
                     </Form>
                 )} 
                 </Formik>      
-                     
+                    </Col>
+                </Row>
+            </Container>
         </div>
     )    
 }

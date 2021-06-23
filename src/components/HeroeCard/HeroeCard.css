@@ -1,17 +1,84 @@
+.heroCard{
+    border:4px solid #343a40;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 15rem;
+    box-shadow: 2px 2px 3px #343a408a;
+}
+
 .cardImage{
-    width: 12rem;
-    height: 8rem;
+    border-radius: 12px;
+    padding: .2rem;
+    padding-right: .6rem;
+    width: 15rem;
+    height: 8.5rem;
 }
 .cardTittle{
-    margin: 0.2rem 0;
+    font-size: 1.47rem;
+    font-family: "Permanent Marker";
 }
 
 .progresBar{
-    height: .65rem;
-    font-size: .55rem;
+    width: 90%;
+    height: 1rem;
+    font-size: .80rem;
+    background:  rgba(95, 0, 154, 0.65) ;
+    font-weight: 500;
 }
 
 .cardStats{
-    font-size: .75rem;
+    font-size: .60rem;
     font-weight: bold;
+    margin-bottom: 0.6rem;
+}
+
+.iconCircle{
+    border-radius: 100%;
+    border: 2px rgb(95, 18, 18) solid;
+}
+
+.cardButton{
+    margin-left: 10px;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    margin-bottom: .2rem;
+
+} 
+.link{
+    margin:0;
+    padding: 0;
+}
+.cardIcon{
+    font-size: 1.1rem;
+    padding-bottom: 0;
+}
+
+.cardBody{
+    color: rgb(72, 5, 134);
+    padding-top: 0.1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+   
+}
+
+.buttonsKeypad{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.statContain{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.statIcon{
+    font-size: 40px;
+}
+
+.a1{
+    font-size:12px;
 }

@@ -2,14 +2,17 @@ import React, {useContext} from "react"
 import {TeamContext} from "../../contexts/TeamContext/TeamContext"
 import {NoPickHeroCard} from "../NoPickHeroCard/NoPickHeroCard"
 import {HeroeCard} from "../HeroeCard/HeroeCard"
+import {Container, Row, Col} from "react-bootstrap"
 import "./TeamSection.css"
 
 export const TeamSection = ()=>{
     const {selectedHeroes} = useContext(TeamContext)
+    
 
     const noHeroesinTeam = ()=>{
         return selectedHeroes.length === 0
     }
+
     const createEmptyPlaces = ()=>{
         const emptyPlaces = 6-selectedHeroes.length
         let emptyCards = []
@@ -20,21 +23,30 @@ export const TeamSection = ()=>{
     }
 
     return (
-        <div>
-            {noHeroesinTeam() ? (
-            <div className="cardGrid">
-                <NoPickHeroCard/>
-                <NoPickHeroCard/>
-                <NoPickHeroCard/>
-                <NoPickHeroCard/>
-                <NoPickHeroCard/>
-                <NoPickHeroCard/>
-            </div>) :
-            <div className="cardGrid">
-                {selectedHeroes.map((heroe)=> <HeroeCard key={heroe.id} heroe={heroe}/>)}
-                {createEmptyPlaces().map((card, idx)=><NoPickHeroCard key={idx}/>)}
-            </div>
+        <Container fluid>
+            <Row md={1}>
+                <Col>
+                    {noHeroesinTeam() ? (
+                        <Container fluid>
+                            <Row className="cardGrid">
+                                <Col><NoPickHeroCard/></Col>
+                                <Col><NoPickHeroCard/></Col>
+                                <Col><NoPickHeroCard/></Col>
+                                <Col><NoPickHeroCard/></Col>
+                                <Col><NoPickHeroCard/></Col>
+                                <Col><NoPickHeroCard/></Col>
+                            </Row>
+                        </Container>) :
+             
+                        <Container fluid>
+                            <Row className="cardGrid">
+                                {selectedHeroes.map((heroe)=> <Col><HeroeCard key={heroe.id} heroe={heroe}/></Col> )}
+                                {createEmptyPlaces().map((card, idx)=><Col><NoPickHeroCard key={idx}/></Col>)}
+                            </Row>
+                        </Container>
         }
-        </div>
+                </Col>
+            </Row>
+        </Container>
     )
 }

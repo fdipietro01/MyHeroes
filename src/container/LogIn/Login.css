@@ -1,15 +1,51 @@
 .form{
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 25%;
+    align-content: center;
+    border: 2px solid rgba(128, 128, 128, 0.377);
+    border-radius: 10px;
+    padding: 3rem;
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2);
 }
-
 .lab{
-    margin-top: 10px;
+    font-family: "Staatliches";
+    margin: 0;
+    letter-spacing: .1rem;
+    font-size: 1.2rem;
 }
 
 .but{
-    margin-top: 20px;
     width: 50%;
     align-self: center;
+    margin-top: 1rem;
+}
+
+.formCont{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.logInTittle{
+    margin-top: 4rem;
+    font-family: 'Bangers', cursive;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #343a40;
+    text-shadow: 0px 3px rgba(0, 0, 0, 0.466);
+    display: flex;
+    justify-content: center;
+}
+
+.requiredHide{
+    visibility: hidden;
+    margin-bottom: 1rem;
+}
+
+.required{
+    visibility: visible;
+    color: red;
+    font-weight: 500;
 }

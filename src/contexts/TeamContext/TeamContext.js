@@ -1,10 +1,13 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 
 export const TeamContext = React.createContext({})
 
 export const TeamSelection = ({children})=>{
 
     const [selectedHeroes, setSelectedHeroes] = useState([])
+    const [totalStats, setTotalStats] = useState({})
+
+    useEffect(()=>{calculateTotalStats()},[selectedHeroes])
 
     const isIncludInTeam = (id)=>{
         let isInclude = false     
@@ -74,11 +77,29 @@ export const TeamSelection = ({children})=>{
         setSelectedHeroes(selectedHeroes.filter(x => x !== heroe))
         console.log(`${heroe.name} was removed from your team`) 
     }
+
+    const checkNumber = (data)=>{
+        if(data === "null") return 0; else return Number(data) 
+    }
+
+    const calculateTotalStats = ()=>{
+        let totals = {combat: 0, durability: 0, intelligence:0, power: 0, speed: 0, strength:0}
+        for (let heroe of selectedHeroes){
+            totals.combat = totals.combat + checkNumber(heroe.powerstats.combat)
+            totals.durability = totals.durability + checkNumber(heroe.powerstats.durability)
+            totals.intelligence = totals.intelligence + checkNumber(heroe.powerstats.intelligence)
+            totals.power = totals.power + checkNumber(heroe.powerstats.power) 
+            totals.speed = totals.speed + checkNumber(heroe.powerstats.speed)
+            totals.strength = totals.strength + checkNumber(heroe.powerstats.strength)
+        }
+        setTotalStats(totals)
+    }
+    console.log(totalStats)
     console.log(selectedHeroes)
 
 
     return (
-        <TeamContext.Provider value={{selectedHeroes, addHeroe, removeHeroe, isIncludInTeam}}>
+        <TeamContext.Provider value={{selectedHeroes, totalStats, addHeroe, removeHeroe, isIncludInTeam, checkNumber}}>
             {children}
         </TeamContext.Provider>
     )

@@ -3,3 +3,45 @@
     height: 100px;
     border-radius: 100%;
 }
+
+.formSeeker{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10rem;
+}
+
+.seekerInp{
+    margin-bottom: 3rem;
+    border: 2.5px solid #1d21249b;
+    border-radius: 10px;
+    width: 35rem;
+    
+}
+.seekerInp:focus{
+    outline: none;
+}
+
+.searchBar{
+    display: flex;
+    justify-content: center;
+}
+
+.deleteSearchButton{
+    width: 1.8rem;
+    height: 1.8rem;
+    padding: 0;
+    padding-bottom: 0rem;
+    border-radius: 100%;
+}
+
+.resultsGrid{
+    margin: 2rem 0rem;
+    padding: 2rem 1rem;
+    border: 2px solid rgba(168, 167, 167, 0.836);
+    border-radius: 10px;
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+

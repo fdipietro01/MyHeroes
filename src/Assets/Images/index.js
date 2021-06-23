@@ -1,4 +1,4 @@
-import logoDesktop from "./logoDkt.png"
+import logoDesktop from "./logoDkt.svg"
 import logoMobile from "./logoMbl.png"
 import mainLogo2 from "./mainLogo2.png"
 
