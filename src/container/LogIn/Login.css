@@ -7,36 +7,50 @@
     border-radius: 10px;
     padding: 3rem;
     box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.541);
 }
 .lab{
     font-family: "Staatliches";
     margin: 0;
-    letter-spacing: .1rem;
-    font-size: 1.2rem;
+    letter-spacing: .2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    -webkit-text-stroke: .5px rgba(0, 0, 0, 0.719);
 }
 
 .but{
     width: 50%;
     align-self: center;
     margin-top: 1rem;
+    opacity: 0.8;
+    font-family: "Staatliches";
+    letter-spacing: .2rem;
+    font-weight: 500;
 }
 
 .formCont{
-    margin-top: 2rem;
+    margin-top: 15rem;
     display: flex;
     justify-content: center;
+}
+
+.inp{
+    background-color: rgba(255, 255, 255, 0.877);
     
 }
 
 .logInTittle{
-    margin-top: 4rem;
+    margin-top: 2rem;
     font-family: 'Bangers', cursive;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #343a40;
-    text-shadow: 0px 3px rgba(0, 0, 0, 0.466);
+    color: #ffffff;
+    text-shadow: 0px 3px rgba(0, 0, 0, 0.664);
     display: flex;
     justify-content: center;
+    letter-spacing: .1rem;
+    -webkit-text-stroke: .5px rgb(112, 0, 65);
 }
 
 .requiredHide{
@@ -46,6 +60,16 @@
 
 .required{
     visibility: visible;
-    color: red;
-    font-weight: 500;
+    color: rgb(200, 0, 0);
+    font-weight: 700;
+    font-size: 1.3rem;
+    -webkit-text-stroke: .5px rgb(133, 6, 6);
+
+}
+
+.bkg{
+    padding: 1rem 4rem 20rem ;
+    background-image: url("../../Assets/Images/Bkg\ set.png");
+    background-size: cover;
+    height: 100%;
 }

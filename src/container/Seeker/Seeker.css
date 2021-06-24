@@ -6,9 +6,9 @@
 
 .formSeeker{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10rem;
+    justify-content: center;
+    margin-top: 1rem;
+    
 }
 
 .seekerInp{
@@ -16,6 +16,7 @@
     border: 2.5px solid #1d21249b;
     border-radius: 10px;
     width: 35rem;
+    height: 2.2rem;
     
 }
 .seekerInp:focus{
@@ -36,12 +37,35 @@
 }
 
 .resultsGrid{
-    margin: 2rem 0rem;
-    padding: 2rem 1rem;
+    justify-self: center;
+    width: 70rem;
+    margin-top: 8rem;
+    padding: 2rem 2rem;
     border: 2px solid rgba(168, 167, 167, 0.836);
     border-radius: 10px;
     box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.767);
 }
 
+.bkg2{
+    background-color: black;
+    min-height: 74.2vh;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-image: url("../../Assets/Images/Bkg\ set.png");
+    background-size: contain;
+}
+
+.btnSearch{
+    height: 2.2rem;
+    margin-left: 1rem;
+    padding: 0.2rem 1.2rem 1.2rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.774);
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    
+}
 
 

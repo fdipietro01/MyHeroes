@@ -23,7 +23,7 @@ export const TeamSection = ()=>{
     }
 
     return (
-        <Container fluid>
+        <Container className="teamSectionBkg" fluid>
             <Row md={1}>
                 <Col>
                     {noHeroesinTeam() ? (

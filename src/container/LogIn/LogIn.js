@@ -67,7 +67,7 @@ export const LogIn = ()=>{
         <div>
             {autenticated === false && window.alert("Bad Loguin")}
             <NavBarComp/>
-            <Container fluid>
+            <Container className="bkg" fluid>
                 <Row className="logInTittle">¡Login to access to the most complete heroes collection!</Row>
                 <Row>
                     <Col className="formCont">
@@ -103,7 +103,7 @@ export const LogIn = ()=>{
                         validate={validatePassword}
                     />
                     <div className={`requiredHide ${errors.password && touched.password && "required"}`}>{errors.password && touched.password? errors.password: "required"}</div>
-                    <Button className= "but" variant="dark" type="submit">Log In</Button>{' '}     
+                    <Button className= "but" variant="dark" type="submit">Login</Button>{' '}     
                     </Form>
                 )} 
                 </Formik>      

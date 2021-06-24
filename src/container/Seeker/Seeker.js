@@ -53,7 +53,7 @@ export const Seeker = ()=>{
     return(
     <>
         <NavBarComp/> 
-        <Container>
+        <Container fluid className="bkg2">
             <Row>
                 <Col>
                        
@@ -85,7 +85,7 @@ export const Seeker = ()=>{
             </div>                            
 
             {errors.search && touched.search? <div>{errors.search}</div> : null}
-            <Button variant="dark" type="submit">Search now </Button>{' '} 
+            <Button className ="btnSearch" variant="dark" type="submit">Search now </Button>{' '} 
         </Form>
         )}
         </Formik>  
