@@ -90,8 +90,8 @@ export const Seeker = ()=>{
         )}
         </Formik>  
 
-                    {searchResults.length > 0 &&  <Row className="resultsGrid" >{searchResults.map((heroe) =><Col> 
-                    <PreviewHeroCard key={heroe.id} heroe={heroe}/></Col>
+                    {searchResults.length > 0 &&  <Row className="resultsGrid" >{searchResults.map((heroe) =><Col key={heroe.id}> 
+                    <PreviewHeroCard heroe={heroe}/></Col>
                     )}</Row>}
                 </Col>
             </Row>

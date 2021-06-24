@@ -29,19 +29,19 @@ export const TeamSection = ()=>{
                     {noHeroesinTeam() ? (
                         <Container fluid>
                             <Row className="cardGrid">
-                                <Col><NoPickHeroCard/></Col>
-                                <Col><NoPickHeroCard/></Col>
-                                <Col><NoPickHeroCard/></Col>
-                                <Col><NoPickHeroCard/></Col>
-                                <Col><NoPickHeroCard/></Col>
-                                <Col><NoPickHeroCard/></Col>
+                                <Col className="card1"><NoPickHeroCard/></Col>
+                                <Col className="card1"><NoPickHeroCard/></Col>
+                                <Col className="card1"><NoPickHeroCard/></Col>
+                                <Col className="card1"><NoPickHeroCard/></Col>
+                                <Col className="card1"><NoPickHeroCard/></Col>
+                                <Col className="card1"><NoPickHeroCard/></Col>
                             </Row>
                         </Container>) :
              
                         <Container fluid>
                             <Row className="cardGrid">
-                                {selectedHeroes.map((heroe)=> <Col><HeroeCard key={heroe.id} heroe={heroe}/></Col> )}
-                                {createEmptyPlaces().map((card, idx)=><Col><NoPickHeroCard key={idx}/></Col>)}
+                                {selectedHeroes.map((heroe)=> <Col className="card1" key={heroe.id}><HeroeCard heroe={heroe}/></Col> )}
+                                {createEmptyPlaces().map((card, idx)=><Col key={idx}><NoPickHeroCard/></Col>)}
                             </Row>
                         </Container>
         }

@@ -1,9 +1,9 @@
 .heroCard{
-    border:4px solid #343a40;
+    border:2px solid #343a40;
     border-radius: 12px;
     overflow: hidden;
     width: 15rem;
-    box-shadow: 2px 2px 3px #343a408a;
+    box-shadow: 2px 2px 3px #343a40;
 }
 
 .cardImage{
@@ -30,6 +30,7 @@
     font-size: .60rem;
     font-weight: bold;
     margin-bottom: 0.6rem;
+    padding: 0;
 }
 
 .iconCircle{

@@ -1,6 +1,6 @@
 import {TeamSection} from "../components/TeamSection/TeamSection"
 import {NavBarComp} from "../components/NavBar/NavBar"
-import { HeroeStats } from "../components/HeroesStats/HeroesStats"
+import {HeroeStats} from "../components/HeroesStats/HeroesStats"
 
 
 

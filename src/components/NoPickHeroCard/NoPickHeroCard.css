@@ -4,7 +4,9 @@
     width: 15rem;
     height: 27.5rem;
     border-radius: 12px;
-    
+    margin: 0;
+    margin-bottom: 1rem;
+    justify-self: center;
 }
 
 .logo{

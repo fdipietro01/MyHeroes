@@ -1,6 +1,16 @@
 .cardGrid{
     margin-bottom: 100px;
     justify-content: space-between;
-    padding: 0rem 6rem;
+    margin: 0rem 3rem 3rem 3rem;
+    padding: 1.5rem 0.5rem 0rem 1rem;
+    padding-bottom: 1rem;
+    border: 2px solid rgba(128, 128, 128, 0.377);
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
 }
 

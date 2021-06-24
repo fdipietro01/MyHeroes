@@ -6,8 +6,18 @@ export const TeamSelection = ({children})=>{
 
     const [selectedHeroes, setSelectedHeroes] = useState([])
     const [totalStats, setTotalStats] = useState({})
+    const [teamNature, setTeamNature] = useState("")
 
-    useEffect(()=>{calculateTotalStats()},[selectedHeroes])
+    useEffect(()=>{
+        calculateTotalStats()
+        estimateNatureTeam()
+        console.log(teamNature)
+    },[selectedHeroes])
+
+    useEffect(()=>{
+        estimateNatureTeam()
+        console.log(teamNature)
+    },[totalStats])
 
     const isIncludInTeam = (id)=>{
         let isInclude = false     
@@ -94,12 +104,26 @@ export const TeamSelection = ({children})=>{
         }
         setTotalStats(totals)
     }
-    console.log(totalStats)
-    console.log(selectedHeroes)
-
+    
+    const estimateNatureTeam = () =>{
+        if(selectedHeroes !== []){
+            let max = 0;
+            let mostAtrribute = ""
+            for ( let atrribute in totalStats ) {
+                if (max < totalStats[atrribute]){
+                    max = totalStats[atrribute]
+                    mostAtrribute = atrribute
+                }
+            }
+        setTeamNature(mostAtrribute)
+        }
+        else{
+            setTeamNature("")
+        }
+    }
 
     return (
-        <TeamContext.Provider value={{selectedHeroes, totalStats, addHeroe, removeHeroe, isIncludInTeam, checkNumber}}>
+        <TeamContext.Provider value={{selectedHeroes, totalStats, addHeroe, removeHeroe, isIncludInTeam, checkNumber, teamNature}}>
             {children}
         </TeamContext.Provider>
     )

@@ -1,10 +1,10 @@
 .sectionContain{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     margin-bottom: 4rem;
 }
 .statsContain{
-    
+    align-self: center;
     margin: auto;
     width: 72%;
     border: 2px solid rgba(128, 128, 128, 0.377);
@@ -18,7 +18,7 @@
     justify-content: center;
     color: white;
     font-family:"Bangers";
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 1.5rem;
 }
 
@@ -27,7 +27,7 @@
     justify-content: center;
     color: white;
     font-family:"Bangers";
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     letter-spacing: .1rem;
     padding: 0 1rem;
 }
@@ -35,4 +35,47 @@
 .statIcon{
     font-size: 1.4rem;
     margin-right: .3rem;
+}
+.mayorStat{
+    align-self: center;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.924) 5%, rgba(95,0,154,1) 40%, rgba(0, 0, 0, 0.924) 100%);
+    width: 25rem;
+    font-size: 2rem;
+    color: white;
+    font-family:"Bangers";
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 5px;
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(128, 128, 128, 0.377);
+}
+
+.statMyIcon{
+    font-size: 3rem;
+    margin-left: 1.1rem; 
+}
+
+.com{
+    color: brown;
+}
+
+.int{
+    color: rgb(28, 28, 255);
+}
+
+.str{
+    color: rgb(117, 117, 117);
+}
+
+.spe{
+    color: yellow;
+}
+
+.pow{
+    color: red;
+}
+
+.dur{
+    color: rgb(0, 163, 0);
 }

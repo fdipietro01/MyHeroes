@@ -17,36 +17,36 @@ export const HeroeCard = ({heroe})=>{
                 <Card.Body className="cardBody" >
                     <Card.Title className="cardTittle">{heroe.name}</Card.Title>
 
-                    <Card.Text className="cardStats">                
-                        <p className="statContain">                    
+                    <Card.Body className="cardStats">                
+                        <div className="statContain">                    
                             <FontAwesomeIcon className="cardIcon" icon={faFistRaised}/>
                             <ProgressBar variant= "dark" className="progresBar" label={checkNumber(heroe.powerstats.combat)} now={heroe.powerstats.combat}/>
-                        </p>
+                        </div>
                         
-                        <p className="statContain">
+                        <div className="statContain">
                             <FontAwesomeIcon className="cardIcon" icon={faBatteryHalf}/> 
                             <ProgressBar variant= "dark" className="progresBar" label={checkNumber(heroe.powerstats.durability)} now={heroe.powerstats.durability}/>
-                        </p>
+                        </div>
                             
-                        <p className="statContain">
+                        <div className="statContain">
                             <FontAwesomeIcon className="cardIcon" icon={faBrain}/>
                             <ProgressBar variant= "dark" className="progresBar" label={checkNumber(heroe.powerstats.intelligence)} now={heroe.powerstats.intelligence}/>
-                        </p>
+                        </div>
 
-                        <p className="statContain">
+                        <div className="statContain">
                             <FontAwesomeIcon className="cardIcon" icon={faBolt}/>
                             <ProgressBar variant= "dark" className="progresBar" label={checkNumber(heroe.powerstats.power)} now={heroe.powerstats.power}/> 
-                        </p>
+                        </div>
                         
-                        <p className="statContain">
+                        <div className="statContain">
                             <FontAwesomeIcon className="cardIcon" icon={faTachometerAlt}/>
                             <ProgressBar variant= "dark" className="progresBar" label={checkNumber(heroe.powerstats.speed)} now={heroe.powerstats.speed}/>
-                        </p>
-                        <p className="statContain">
+                        </div>
+                        <div className="statContain">
                             <FontAwesomeIcon className="cardIcon" icon={faDumbbell}/>
                             <ProgressBar variant= "dark" className="progresBar" label={checkNumber(heroe.powerstats.strength)} now={heroe.powerstats.strength}/>
-                        </p>
-                    </Card.Text>
+                        </div>
+                    </Card.Body>
 
                 <div className="buttonsKeypad">
                     <Link className="link "to={`/detail-heroe/${heroe.id}`}>
