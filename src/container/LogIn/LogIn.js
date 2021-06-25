@@ -6,9 +6,8 @@ import {Formik, Form, Field} from "formik"
 import {Button, Container, Row, Col} from "react-bootstrap"
 
 
-export const LogIn = ({props})=>{
+export const LogIn = ()=>{
     
-    console.log(props)
     const {isAuthenticated} = useContext(LogInContext)
 
     const myStorage= (value)=>{window.localStorage.setItem("token", value)};

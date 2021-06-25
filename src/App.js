@@ -23,9 +23,7 @@ export const App = ()=>{
                     <Switch>
                         <PrivateRoute path={'/team'} component={Home} />
                         <PrivateRoute path={'/seeker'} component={Seeker}/>
-                        <Route path={"/detail-heroe/:id"}>
-                            <HeroeDetail/>
-                        </Route>
+                        <PrivateRoute path={"/detail-heroe/:id"} component={HeroeDetail}/>
                         <Route path={"/login"}>
                             <LogIn/>
                         </Route>
