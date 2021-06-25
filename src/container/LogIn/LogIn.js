@@ -3,19 +3,18 @@ import {useContext} from "react"
 import {LogInContext} from "../../contexts/LogInContext/LogInContext"
 import axios from "axios"
 import {Formik, Form, Field} from "formik"
-import {NavBarComp} from "../../components/NavBar/NavBar"
 import {Button, Container, Row, Col} from "react-bootstrap"
 
 
-export const LogIn = ()=>{
+export const LogIn = ({props})=>{
     
-    const {autenticated} = useContext(LogInContext)
-    const {setAutenticated} = useContext(LogInContext)
+    console.log(props)
+    const {isAuthenticated} = useContext(LogInContext)
 
     const myStorage= (value)=>{window.localStorage.setItem("token", value)};
 
     const accessTokenApiCall =(data)=>{
-        try{
+        
             axios({
                 method: "post", 
                 url:"http://challenge-react.alkemy.org",
@@ -25,22 +24,14 @@ export const LogIn = ()=>{
                 }
             })
             .then(res=>{
-                if (res.status===200) {
-                    if(res.response ==="success"){
-                        myStorage(res.data.token)
-                        console.log(window.localStorage.getItem("token"))
-                    window.localStorage.getItem("token") !== null && setAutenticated(true)
-                    }
+                const {token} = res.data
+                    if (token) {
+                        myStorage(token)
+                        isAuthenticated()
                 }
-            }, (error)=>{
-                console.log(`algo falló ${error}`)
-                setAutenticated(false)
             })
-        }
-        catch(error){
-            error && console.log(`El error es: ${error}`)
-        }
-    }
+            .catch((error)=>{console.log(`El error es: ${error}`)})    
+       }
 
     function validateEmail(value) {
         let error
@@ -65,8 +56,6 @@ export const LogIn = ()=>{
 
     return(
         <div>
-            {autenticated === false && window.alert("Bad Loguin")}
-            <NavBarComp/>
             <Container className="bkg" fluid>
                 <Row className="logInTittle">¡Login to access to the most complete heroes collection!</Row>
                 <Row>

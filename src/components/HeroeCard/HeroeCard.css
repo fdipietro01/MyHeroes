@@ -6,11 +6,14 @@
     box-shadow: 2px 2px 3px #343a40;
 }
 
+
 .cardImage{
-    border-radius: 10%;
-    padding: .5rem 1rem 0.5rem 1rem;
-    width: 15rem;
-    height: 8.5rem;
+    border-radius: 10px;
+    width: 11.5rem;
+    height: 10rem;
+    margin: auto;
+    margin-top: 1rem;
+
 }
 .cardTittle{
     font-size: 1.47rem;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {LogIn} from "./container/LogIn/LogIn"
 import {Home} from "./Home/Home"
 import {Seeker} from "./container/Seeker/Seeker"
@@ -6,25 +6,27 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import {LogInAuth} from "./contexts/LogInContext/LogInContext"
 import {TeamSelection} from "./contexts/TeamContext/TeamContext"
 import {HeroeDetail} from "./components/HeroeDetail/HeroeDetail"
+import {PrivateRoute} from "./container/RoutHandler/PrivateRoute";
+import {LogInContext} from "./contexts/LogInContext/LogInContext"
+import {NavBarComp} from "./components/NavBar/NavBar";
 
 
 export const App = ()=>{
+    /*const {isAuthenticated} = useContext(LogInContext)
+     useEffect(()=>{isAuthenticated()},[]) */
     return (
         <div>
         <LogInAuth>    
             <TeamSelection>
-                <Router>            
+                <Router>  
+                <NavBarComp/>       
                     <Switch>
-                        <Route path={"/team/"}>
-                            <Home/>     
-                        </Route>
-                        <Route path={"/seeker/"}>
-                            <Seeker/>
-                        </Route>
+                        <PrivateRoute path={'/team'} component={Home} />
+                        <PrivateRoute path={'/seeker'} component={Seeker}/>
                         <Route path={"/detail-heroe/:id"}>
                             <HeroeDetail/>
                         </Route>
-                        <Route path={"/login/"}>
+                        <Route path={"/login"}>
                             <LogIn/>
                         </Route>
                         <Route path={"/"}>

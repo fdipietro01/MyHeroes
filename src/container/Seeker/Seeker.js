@@ -1,7 +1,7 @@
-import React, { useState } from "react"
-import { NavBarComp } from "../../components/NavBar/NavBar"
+import React, {useState, useContext} from "react"
+import {TeamContext} from "../../contexts/TeamContext/TeamContext"
 import {Formik, Form, Field} from "formik"
-import {Button, Container, Col, Row} from "react-bootstrap"
+import {Button, Container, Col, Row, Alert} from "react-bootstrap"
 import axios from "axios"
 import "./Seeker.css"
 import { PreviewHeroCard } from "../../components/PreviewHeroCard/PreviewHeroCard"
@@ -12,8 +12,10 @@ import { faBan } from '@fortawesome/free-solid-svg-icons'
 export const Seeker = ()=>{
 
    const [searchResults, setSearchResults] = useState([])
+   const {addMessage, resetAddMessage} = useContext(TeamContext)
 
     const catchHero = (data)=>{
+        resetAddMessage()
         const newData = data.search.toString().toLowerCase()
         const url = `https://www.superheroapi.com/api/10226309405912299/search/${newData}`
         console.log (url.toString())
@@ -52,11 +54,8 @@ export const Seeker = ()=>{
   
     return(
     <>
-        <NavBarComp/> 
         <Container fluid className="bkg2">
-            <Row>
-                <Col>
-                       
+            <Row className="line">      
                     <Formik
             initialValues ={{
             search:"",
@@ -79,7 +78,7 @@ export const Seeker = ()=>{
                 placeholder="Look up for your heroes"
                 validate={validateSearchBarInput} 
             />
-            {searchResults.length>0 && <Button className="deleteSearchButton" onClick={(e)=>{ deleteSearch(e); resetForm()}} variant="dark">
+            {searchResults.length>0 && <Button className="deleteSearchButton" onClick={(e)=>{ deleteSearch(e); resetForm(); resetAddMessage()}} variant="dark">
                                            <FontAwesomeIcon className="icon" icon={faBan}/>
                                         </Button>}
             </div>                            
@@ -89,11 +88,14 @@ export const Seeker = ()=>{
         </Form>
         )}
         </Formik>  
+        {addMessage && addMessage.includes("Error")? 
+        <Row><Alert className="alert" variant="danger"> {addMessage}<Button variant="dark" className="alertBut" onClick={resetAddMessage}>X</Button></Alert></Row>:
+        <Row><Alert className="alert hide">Error</Alert></Row>}
 
-                    {searchResults.length > 0 &&  <Row className="resultsGrid" >{searchResults.map((heroe) =><Col key={heroe.id}> 
+                    {searchResults.length > 0 &&  <Row className="resultsGrid" >
+                        {searchResults.map((heroe) =><Col key={heroe.id}> 
                     <PreviewHeroCard heroe={heroe}/></Col>
                     )}</Row>}
-                </Col>
             </Row>
         </Container>
     </>

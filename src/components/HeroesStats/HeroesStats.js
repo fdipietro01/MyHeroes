@@ -41,7 +41,7 @@ export const HeroeStats = ()=>{
       </Row>
       
     </div>
-    <Row className="mayorStat"> Team Nature: {teamNature ===""? <FontAwesomeIcon className="statMyIcon"icon={faQuestionCircle}/> : (setNatureLogo())}</Row>
+    <Row className="mayorStat"> Top skill: {teamNature ===""? <FontAwesomeIcon className="statMyIcon"icon={faQuestionCircle}/> : (setNatureLogo())}</Row>
     </Container>
     </>
     )

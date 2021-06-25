@@ -1,7 +1,7 @@
 import React, {useContext} from "react"
 import {TeamContext} from "../../contexts/TeamContext/TeamContext"
 import {Link} from "react-router-dom"
-import {Card, Button, ProgressBar} from "react-bootstrap"
+import {Card, Button, ProgressBar, Image} from "react-bootstrap"
 import "./HeroeCard.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBrain, faDumbbell, faBatteryHalf, faBolt, faTachometerAlt, faFistRaised, faTrashAlt, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
@@ -13,7 +13,7 @@ export const HeroeCard = ({heroe})=>{
         <>
             
             <Card className="heroCard">
-                <Card.Img className="cardImage" variant="top" src={heroe.image.url} />
+                <Image className="cardImage" variant="top" src={heroe.image.url} fluid/>
                 <Card.Body className="cardBody" >
                     <Card.Title className="cardTittle">{heroe.name}</Card.Title>
 

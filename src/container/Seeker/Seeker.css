@@ -12,7 +12,6 @@
 }
 
 .seekerInp{
-    margin-bottom: 3rem;
     border: 2.5px solid #1d21249b;
     border-radius: 10px;
     width: 35rem;
@@ -29,11 +28,12 @@
 }
 
 .deleteSearchButton{
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 2.2rem;
+    height: 2.2rem;
     padding: 0;
-    padding-bottom: 0rem;
-    border-radius: 100%;
+    border-radius: 5px;
+    margin-left: .2rem ;
+    
 }
 
 .resultsGrid{
@@ -65,7 +65,39 @@
     border-radius: 10px;
     font-size: 1.1rem;
     font-weight: 500;
-    
+}
+
+.alert{
+    display: flex;
+    width: 25.5rem;
+    justify-content: space-between;
+    padding: 0 .2rem 0 1rem;
+    line-height: 1rem;
+    border-radius: 10px;
+    font-size: .8rem;
+    margin-top: .1rem;
+    font-weight: 700;
+    margin-right: 9rem;
+}
+
+.alertBut{
+    font-size: .7rem;
+    font-weight: 700;
+    line-height: 0;
+    padding: 0rem .2rem 0rem .2rem;
+    border-radius: 100%;
+    border: 2p solid black;
+}
+
+.hide{
+    visibility: hidden;
+}
+
+.line{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
 }
 
 
