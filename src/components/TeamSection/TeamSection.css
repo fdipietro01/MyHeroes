@@ -1,9 +1,7 @@
 .cardGrid{
-    margin-bottom: 100px;
     justify-content: space-between;
-    margin: 0rem 1rem 1rem 3rem;
-    padding: 2.5rem 0rem 2rem 0rem;
-    padding-bottom: 1rem;
+    margin: 0rem 1rem 2rem 3rem;
+    padding: 2.5rem 0rem 1rem 0rem;
     border: 2px solid rgba(128, 128, 128, 0.377);
     box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2);
     border-radius: 10px;

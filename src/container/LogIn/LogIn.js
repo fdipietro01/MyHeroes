@@ -54,7 +54,7 @@ export const LogIn = ()=>{
 
 
     return(
-        <div>
+
             <Container className="bkg" fluid>
                 <Row className="logInTittle">¡Login to access to the most complete heroes collection!</Row>
                 <Row>
@@ -98,6 +98,5 @@ export const LogIn = ()=>{
                     </Col>
                 </Row>
             </Container>
-        </div>
     )    
 }

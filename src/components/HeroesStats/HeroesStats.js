@@ -31,13 +31,13 @@ export const HeroeStats = ()=>{
     <div className="statsContain">
       <Row className="totalstatsTittle">Team Picked Stats</Row>
   
-      <Row>
-        <Col className="stat"><FontAwesomeIcon className="statIcon"icon={faFistRaised}/> {` Combat: ${totalStats.combat}`}</Col>
-        <Col className="stat"><FontAwesomeIcon className="statIcon"icon={faBatteryHalf}/>{` Durability: ${totalStats.durability}`}</Col>
-        <Col className="stat"><FontAwesomeIcon className="statIcon"icon={faBrain}/>{` Intelligence: ${totalStats.intelligence}`}</Col>
-        <Col className="stat"><FontAwesomeIcon className="statIcon"icon={faBolt}/>{`Power: ${totalStats.power}`}</Col>
-        <Col className="stat"><FontAwesomeIcon className="statIcon"icon={faTachometerAlt}/>{` Speed: ${totalStats.speed}`}</Col>
-        <Col className="stat"><FontAwesomeIcon className="statIcon"icon={faDumbbell}/>{` Strength: ${totalStats.strength}`}</Col>
+      <Row className="statsTable">
+        <Col className="stat"><Row className="statValueLabel"><FontAwesomeIcon className="statIcon"icon={faFistRaised}/> Combat</Row> <p className="statValueLabel">{totalStats.combat}</p></Col>
+        <Col className="stat"><Row className="statValueLabel"><FontAwesomeIcon className="statIcon"icon={faBatteryHalf}/>Durability</Row> <p className="statValueLabel">{totalStats.durability}</p></Col>
+        <Col className="stat"><Row className="statValueLabel"><FontAwesomeIcon className="statIcon"icon={faBrain}/>Intelligence</Row> <p className="statValueLabel">{totalStats.intelligence}</p></Col>
+        <Col className="stat"><Row className="statValueLabel"><FontAwesomeIcon className="statIcon"icon={faBolt}/>Power</Row> <p className="statValueLabel">{totalStats.power}</p></Col>
+        <Col className="stat"><Row className="statValueLabel"><FontAwesomeIcon className="statIcon"icon={faTachometerAlt}/>Speed</Row> <p className="statValueLabel">{totalStats.speed}</p></Col>
+        <Col className="stat"><Row className="statValueLabel"><FontAwesomeIcon className="statIcon"icon={faDumbbell}/>Strength</Row> <p className="statValueLabel">{totalStats.strength}</p></Col>
       </Row>
       
     </div>

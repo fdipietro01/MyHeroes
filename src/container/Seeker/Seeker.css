@@ -39,7 +39,8 @@
 .resultsGrid{
     justify-self: center;
     width: 70rem;
-    margin-top: 8rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
     padding: 2rem 2rem;
     border: 2px solid rgba(168, 167, 167, 0.836);
     border-radius: 10px;
@@ -49,7 +50,7 @@
 
 .bkg2{
     background-color: black;
-    min-height: 74.2vh;
+    min-height: 100vh;
     height: 100%;
     display: flex;
     justify-content: center;
