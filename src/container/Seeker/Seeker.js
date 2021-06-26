@@ -19,23 +19,23 @@ export const Seeker = ()=>{
         const newData = data.search.toString().toLowerCase()
         const url = `https://www.superheroapi.com/api/10226309405912299/search/${newData}`
         console.log (url.toString())
-        try{
+        /* axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*'; */
         axios.get(url)
+
         .then((res)=>{
             if (res.status===200) {
                 if(res.data.response ==="success"){
-                    setSearchResults(res.data.results)}
+                    setSearchResults(res.data.results)
+                }
                 else {
                     console.log(res.data.error) 
-                    }
+                }
             }
-        }
-        ,(error)=>{console.log(`el error es ${error}`)})
-        }
-        catch(error){
-            error && console.log(`aqui el error es ${error}`)
-        }
-    }
+        })
+        .catch((error)=>{
+            console.log(`aqui el error es ${error}`)
+        })
+    }    
     
     const validateSearchBarInput=(value)=> {
         let error

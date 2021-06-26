@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react"
 import axios from "axios"
 import { Container, Image, Row, Col, Button} from "react-bootstrap"
-import {Loader} from "../Loader/Loader"
+import {Loader} from "../../components/Loader/Loader"
 import "./HeroeDetail.css"
 import {Link} from "react-router-dom"
 
@@ -17,22 +17,21 @@ export const HeroeDetail = ({id})=>{
             const newId = id.toString()
             const url = `https://www.superheroapi.com/api/10226309405912299/${newId}`
             console.log (url.toString())
-       
+       /* axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*'; */
             axios.get(url)
             .then((res)=>{
                 if(res.data.response ==="success"){
-                    setHeroe(res.data)
-                }
+                    setHeroe(res.data)}
                 else {
-                    console.log(res.error) 
-                }
-            }) 
+                    console.log(res.data.error) 
+                    }
+            })
+
             .catch((error)=>{
-                console.log(`aqui el error es ${error}`)
+                error && console.log(`Error en details es ${error}`)
             })
         }
     }
-    console.log(heroe)
 
     return(
         <>
