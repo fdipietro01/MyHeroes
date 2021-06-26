@@ -13,6 +13,7 @@ export const Seeker = ()=>{
 
    const [searchResults, setSearchResults] = useState([])
    const {addMessage, resetAddMessage} = useContext(TeamContext)
+   const [noResults, setNoResults] = useState()
 
     const catchHero = (data)=>{
         resetAddMessage()
@@ -25,9 +26,11 @@ export const Seeker = ()=>{
             if (res.status===200) {
                 if(res.data.response ==="success"){
                     setSearchResults(res.data.results)
+                    setNoResults()
                 }
                 else {
                     console.log(res.data.error) 
+                    setNoResults(`No heroe match with "${newData}"`)
                 }
             }
         })
@@ -75,13 +78,14 @@ export const Seeker = ()=>{
                 type="text" 
                 placeholder="Look up for your heroes"
                 validate={validateSearchBarInput} 
+                
             />
-            {searchResults.length>0 && <Button className="deleteSearchButton" onClick={(e)=>{ deleteSearch(e); resetForm(); resetAddMessage()}} variant="dark">
+            {(searchResults.length>0 || noResults) ? <Button className="deleteSearchButton" onClick={(e)=>{ deleteSearch(e); resetForm(); resetAddMessage(); setNoResults()}} variant="dark">
                                            <FontAwesomeIcon className="icon" icon={faBan}/>
-                                        </Button>}
+                                        </Button> : <Button className="hide deleteSearchButton"/> }
             </div>                            
 
-            {errors.search && touched.search? <div>{errors.search}</div> : null}
+           
             <Button className ="btnSearch" variant="dark" type="submit">Search now </Button>{' '} 
         </Form>
         )}
@@ -90,10 +94,10 @@ export const Seeker = ()=>{
         <Row><Alert className="alert2" variant="danger"> {addMessage}<Button variant="dark" className="alertBut" onClick={resetAddMessage}>X</Button></Alert></Row>:
         <Row><Alert className="alert2 hide">Error</Alert></Row>}
 
-                    {searchResults.length > 0 &&  <Row className="resultsGrid" >
-                        {searchResults.map((heroe) =><Col key={heroe.id}> 
-                    <PreviewHeroCard heroe={heroe}/></Col>
-                    )}</Row>}
+        {noResults? <Row><Alert className="alert4">{noResults}...</Alert></Row>: (
+
+        searchResults.length > 0 &&  <Row className="resultsGrid" >
+        {searchResults.map((heroe) =><Col key={heroe.id}> <PreviewHeroCard heroe={heroe}/></Col>)}</Row>)}
             </Row>
         </Container>
     </>
