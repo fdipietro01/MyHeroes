@@ -89,8 +89,8 @@ export const Seeker = ()=>{
         )}
         </Formik>  
         {addMessage && addMessage.includes("Error")? 
-        <Row><Alert className="alert" variant="danger"> {addMessage}<Button variant="dark" className="alertBut" onClick={resetAddMessage}>X</Button></Alert></Row>:
-        <Row><Alert className="alert hide">Error</Alert></Row>}
+        <Row><Alert className="alert2" variant="danger"> {addMessage}<Button variant="dark" className="alertBut" onClick={resetAddMessage}>X</Button></Alert></Row>:
+        <Row><Alert className="alert2 hide">Error</Alert></Row>}
 
                     {searchResults.length > 0 &&  <Row className="resultsGrid" >
                         {searchResults.map((heroe) =><Col key={heroe.id}> 

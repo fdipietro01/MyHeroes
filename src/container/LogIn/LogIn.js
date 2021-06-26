@@ -1,14 +1,17 @@
 import "./Login.css" 
-import {useContext} from "react"
+import {useContext, useState} from "react"
 import {LogInContext} from "../../contexts/LogInContext/LogInContext"
 import axios from "axios"
 import {Formik, Form, Field} from "formik"
-import {Button, Container, Row, Col} from "react-bootstrap"
+import {Button, Container, Row, Col, Alert} from "react-bootstrap"
 
 
 export const LogIn = ()=>{
     
     const {isAuthenticated} = useContext(LogInContext)
+    const [errorMail, setErrorMail] = useState()
+    const [errorPass, setErrorPass] = useState()
+    const [wrongCredentialMsg, setWronCredentialMsg] =useState() 
 
     const myStorage= (value)=>{window.localStorage.setItem("token", value)};
 
@@ -29,12 +32,12 @@ export const LogIn = ()=>{
                         isAuthenticated()
                 }
             })
-            .catch((error)=>{console.log(`El error es: ${error}`)})    
+            .catch((error)=>{setWronCredentialMsg(`¡Wrong credentials, try again!`)})    
        }
 
     function validateEmail(value) {
         let error
-        if (!value) {
+        if (!value || value ==="") {
           error = 'Required'
         } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
           error = 'Invalid email address'
@@ -44,13 +47,20 @@ export const LogIn = ()=>{
 
     function validatePassword(value) {
         let error
-        if (!value) {
+        if (!value | value ==="") {
           error = 'Required'
         } else if (value.toString().length < 5){
-        error = "Password too short. Min 6 characters"
+        error = "Too short. Min 6 characters"
         }
         return error
     }
+
+    function pointErrors(res){
+       
+        res.email? setErrorMail(res.email) : setErrorMail()
+        res.password? setErrorPass(res.password) : setErrorPass()
+    }
+
 
 
     return(
@@ -60,16 +70,19 @@ export const LogIn = ()=>{
                 <Row>
                     <Col className="formCont">
                         <Formik
-                initialValues ={{
+                initialValues ={
+                    {
                     email:"",
                     password:""
-                }}
+                    }
+                }
                 onSubmit={ formData =>{
                     accessTokenApiCall(formData)
                     console.log(formData)
-                }}> 
+                    } 
+                }> 
                 
-                {({errors, touched, isValidating})=>(
+                {({errors, touched, validateForm})=>(
                 <Form className="form">       
                     <label className="lab">Login</label>
                     <Field 
@@ -77,10 +90,11 @@ export const LogIn = ()=>{
                         name="email" 
                         type="text" 
                         placeholder="Email address"
-                        validate={validateEmail} 
+                        validate={validateEmail}
+                        
                     />
-                
-                    <div className={`requiredHide ${errors.email && touched.email && "required"}`}>{errors.email && touched.email? errors.email: "required"}</div>
+                <div className={`requiredHide ${errorMail && "required"}`}> {errorMail? errorMail : "No error found"} </div>
+                   
                 
                     <label className="lab">Password</label>
                     <Field 
@@ -89,9 +103,15 @@ export const LogIn = ()=>{
                         type="password" 
                         placeholder="Enter your password" 
                         validate={validatePassword}
+                        
                     />
-                    <div className={`requiredHide ${errors.password && touched.password && "required"}`}>{errors.password && touched.password? errors.password: "required"}</div>
-                    <Button className= "but" variant="dark" type="submit">Login</Button>{' '}     
+                    <div className={`requiredHide ${errorPass && "required"}`}> {errorPass? errorPass : "No error found"} </div>
+                    
+                    <Button className="but" onClick={()=>validateForm().then((res) => pointErrors(res))} variant="dark" type="submit">Login</Button>{' '}
+
+                       {wrongCredentialMsg? 
+                    <Row><Alert className="alert3" variant="danger"> {wrongCredentialMsg}</Alert></Row>:
+                    <Row><Alert className="alert3 hide">Hide Error</Alert></Row>}     
                     </Form>
                 )} 
                 </Formik>      

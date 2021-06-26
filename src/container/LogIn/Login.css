@@ -62,9 +62,7 @@
     visibility: visible;
     color: rgb(200, 0, 0);
     font-weight: 700;
-    font-size: 1.3rem;
-    -webkit-text-stroke: .5px rgb(133, 6, 6);
-
+    font-size: 1rem;
 }
 
 .bkg{
@@ -73,4 +71,15 @@
     background-size: contain;
     height: 100%;
     overflow: hidden;
+}
+
+.alert3{
+    display: flex;
+    padding: 0 0.5rem 0 .5rem;
+    line-height: 1rem;
+    border-radius: 10px;
+    font-size: .8rem;
+    margin: auto;
+    margin-top: .3rem;
+    font-weight: 700;
 }
