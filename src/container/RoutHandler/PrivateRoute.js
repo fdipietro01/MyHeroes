@@ -11,7 +11,7 @@ export const PrivateRoute=({component: Component})=>{
     useEffect(()=>{
       location.pathname.includes("detail") && setParamId(location.pathname.slice(14))
     },[location])
-    if(Component.props !== undefined) console.log(Component.props.location)
+  
 
 
     return (
