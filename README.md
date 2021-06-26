@@ -39,6 +39,9 @@ It allows browsing through a universe of heroes, consulting their powerstats and
     (installs all modules / dependencies used in the project - the process may take a few minutes)
     - npm start
     (it will automatically open the project on the port [http: // localhost: 3000] (http: // localhost: 3000))
+    -to get a succesfull logIn, insert this credential:
+    user:challenge@alkemy.org
+    password:react
 
 ### `Take a look`
 
