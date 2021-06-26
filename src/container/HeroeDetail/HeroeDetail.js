@@ -8,16 +8,12 @@ import {Link} from "react-router-dom"
 
 export const HeroeDetail = ({id})=>{
     const [heroe, setHeroe]= useState()
-    console.log(id)
-
     useEffect(()=>{catchHeroById(id)},[id])
 
     const catchHeroById = (id)=>{
         if(id!== undefined){
             const newId = id.toString()
             const url = `https://www.superheroapi.com/api/10226309405912299/${newId}`
-            console.log (url.toString())
-       /* axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*'; */
             axios.get(url)
             .then((res)=>{
                 if(res.data.response ==="success"){

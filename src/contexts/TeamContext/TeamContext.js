@@ -12,7 +12,6 @@ export const TeamSelection = ({children})=>{
     useEffect(()=>{
         calculateTotalStats()
         estimateNatureTeam()
-        console.log(teamNature)
     },[selectedHeroes])
 
     useEffect(()=>{
@@ -71,7 +70,6 @@ export const TeamSelection = ({children})=>{
             
         }  
     }
-    console.log(selectedHeroes)
     const removeHeroe=(heroe)=>{
         setSelectedHeroes(selectedHeroes.filter(x => x.id !== heroe.id))
     }

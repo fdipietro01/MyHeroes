@@ -9,7 +9,6 @@ export const HeroeStats = ()=>{
     const {totalStats, teamNature} = useContext(TeamContext)
 
     const setNatureLogo = ()=>{
-      console.log(teamNature)
       switch(teamNature){
         case "intelligence": return  <FontAwesomeIcon className="statMyIcon int"icon={faBrain}/>;
         break;

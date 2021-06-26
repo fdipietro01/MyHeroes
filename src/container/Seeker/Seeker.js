@@ -18,7 +18,6 @@ export const Seeker = ()=>{
         resetAddMessage()
         const newData = data.search.toString().toLowerCase()
         const url = `https://www.superheroapi.com/api/10226309405912299/search/${newData}`
-        console.log (url.toString())
         /* axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*'; */
         axios.get(url)
 
@@ -46,7 +45,6 @@ export const Seeker = ()=>{
     }
 
     const deleteSearch =(e)=>{
-        console.log(e.target.value)
         e.target.value=""
         setSearchResults([])
     }

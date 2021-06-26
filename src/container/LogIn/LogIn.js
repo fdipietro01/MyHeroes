@@ -78,7 +78,6 @@ export const LogIn = ()=>{
                 }
                 onSubmit={ formData =>{
                     accessTokenApiCall(formData)
-                    console.log(formData)
                     } 
                 }> 
                 

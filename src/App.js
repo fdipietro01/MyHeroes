@@ -12,8 +12,7 @@ import {NavBarComp} from "./components/NavBar/NavBar";
 
 
 export const App = ()=>{
-    /*const {isAuthenticated} = useContext(LogInContext)
-     useEffect(()=>{isAuthenticated()},[]) */
+
     return (
         <div>
         <LogInAuth>    
