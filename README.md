@@ -1,5 +1,6 @@
 
-# My Heroes/for Alkemy Challenge/
+# My Heroes 
+(for Alkemy Challenge)
 
 Funny App to create a team of superheroes/villans based in a huge heroe´s database provided by Alkemy.   
 
