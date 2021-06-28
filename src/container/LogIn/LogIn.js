@@ -4,11 +4,12 @@ import {LogInContext} from "../../contexts/LogInContext/LogInContext"
 import axios from "axios"
 import {Formik, Form, Field} from "formik"
 import {Button, Container, Row, Col, Alert} from "react-bootstrap"
+import { Redirect } from "react-router-dom"
 
 
 export const LogIn = ()=>{
     
-    const {isAuthenticated} = useContext(LogInContext)
+    const {isAuthenticated, autenticated} = useContext(LogInContext)
     const [errorMail, setErrorMail] = useState()
     const [errorPass, setErrorPass] = useState()
     const [wrongCredentialMsg, setWronCredentialMsg] =useState() 
@@ -64,6 +65,7 @@ export const LogIn = ()=>{
 
 
     return(
+            autenticated ===false? 
 
             <Container className="bkg" fluid>
                 <Row className="logInTittle">¡Login to access to the most complete heroes collection!</Row>
@@ -117,5 +119,6 @@ export const LogIn = ()=>{
                     </Col>
                 </Row>
             </Container>
+    :<Redirect to={{pathname: '/team'}} />
     )    
 }

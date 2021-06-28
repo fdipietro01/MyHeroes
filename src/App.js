@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import {LogIn} from "./container/LogIn/LogIn"
 import {Home} from "./Home/Home"
 import {Seeker} from "./container/Seeker/Seeker"
@@ -13,9 +13,11 @@ import {NavBarComp} from "./components/NavBar/NavBar";
 
 export const App = ()=>{
 
+    const {isAuthenticated}=useContext(LogInContext)
+    isAuthenticated()
     return (
         <div>
-        <LogInAuth>    
+      
             <TeamSelection>
                 <Router>  
                 <NavBarComp/>       
@@ -32,7 +34,7 @@ export const App = ()=>{
                     </Switch>
                 </Router>
             </TeamSelection>
-        </LogInAuth>
+    
         </div>
     )
 } 
