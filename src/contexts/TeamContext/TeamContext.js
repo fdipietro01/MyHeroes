@@ -28,6 +28,10 @@ export const TeamSelection = ({children})=>{
             return isInclude
     }
 
+    const resetTeam = ()=>{
+        setSelectedHeroes([])
+    }
+
     const resetAddMessage=()=>{
         setAddMessage()
     }
@@ -89,7 +93,7 @@ export const TeamSelection = ({children})=>{
             totals.strength = totals.strength + checkNumber(heroe.powerstats.strength)
         }
         setTotalStats(totals)
-    }
+        }
     
     const estimateNatureTeam = () =>{
         if(selectedHeroes !== []){
@@ -109,7 +113,7 @@ export const TeamSelection = ({children})=>{
     }
 
     return (
-        <TeamContext.Provider value={{selectedHeroes, totalStats, addHeroe, removeHeroe, isIncludInTeam, checkNumber, teamNature, addMessage, resetAddMessage}}>
+        <TeamContext.Provider value={{selectedHeroes, totalStats, teamNature, addMessage, addHeroe, removeHeroe, isIncludInTeam, checkNumber, resetAddMessage, resetTeam}}>
             {children}
         </TeamContext.Provider>
     )

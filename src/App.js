@@ -17,7 +17,6 @@ export const App = ()=>{
     isAuthenticated()
     return (
         <div>
-      
             <TeamSelection>
                 <Router>  
                 <NavBarComp/>       
@@ -34,7 +33,6 @@ export const App = ()=>{
                     </Switch>
                 </Router>
             </TeamSelection>
-    
         </div>
     )
 } 
