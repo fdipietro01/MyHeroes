@@ -7,6 +7,7 @@ import "./Seeker.css"
 import { PreviewHeroCard } from "../../components/PreviewHeroCard/PreviewHeroCard"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBan } from '@fortawesome/free-solid-svg-icons'
+import { Loader } from "../../components/Loader/Loader"
 
 
 export const Seeker = ()=>{
@@ -14,8 +15,10 @@ export const Seeker = ()=>{
    const [searchResults, setSearchResults] = useState([])
    const {addMessage, resetAddMessage} = useContext(TeamContext)
    const [noResults, setNoResults] = useState()
+   const [onLoad, setOnLoad] = useState(false)
 
     const catchHero = (data)=>{
+        setOnLoad(true)
         resetAddMessage()
         const newData = data.search.toString().toLowerCase()
         const url = `https://www.superheroapi.com/api/10226309405912299/search/${newData}`
@@ -29,6 +32,7 @@ export const Seeker = ()=>{
                     setNoResults()
                 }
                 else {
+                    setSearchResults([])
                     console.log(res.data.error) 
                     setNoResults(`No heroe match with "${newData}"`)
                 }
@@ -37,6 +41,7 @@ export const Seeker = ()=>{
         .catch((error)=>{
             console.log(`aqui el error es ${error}`)
         })
+        setOnLoad(false)
     }    
     
     const validateSearchBarInput=(value)=> {
@@ -93,6 +98,8 @@ export const Seeker = ()=>{
         {addMessage && addMessage.includes("Error")? 
         <Row><Alert className="alert2" variant="danger"> {addMessage}<Button variant="dark" className="alertBut" onClick={resetAddMessage}>X</Button></Alert></Row>:
         <Row><Alert className="alert2 hide">Error</Alert></Row>}
+        
+        {onLoad === true && <Row className="resultsGrid" ><Loader/></Row>}
 
         {noResults? <Row><Alert className="alert4">{noResults}...</Alert></Row>: (
 
