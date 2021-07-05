@@ -45,4 +45,4 @@ It allows browsing through a universe of heroes, consulting their powerstats and
 
 ### `Take a look`
 
-![](.gif)
+![](MyHeroes.gif)
